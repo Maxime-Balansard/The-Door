@@ -18,11 +18,8 @@ class Player extends Phaser.Physics.Arcade.Sprite {
         this.waitForDoubleJump = false;
         this.controlLock= false;
         this.isDash = false;
-<<<<<<< HEAD
         this.isSaut = false;
         this.isTombe = false;
-=======
->>>>>>> ce22591084118d42d2d40ef43dc0dd36274526fc
 
         this.speedFactor = 1;
         this.vitesse = 0;
@@ -58,7 +55,6 @@ class Player extends Phaser.Physics.Arcade.Sprite {
             key: 'back',
             frames: this.anims.generateFrameNumbers('iddlAP', {start: 10, end: 0}),
             frameRate: 10,
-<<<<<<< HEAD
 
             repeat: -1
         });
@@ -68,8 +64,6 @@ class Player extends Phaser.Physics.Arcade.Sprite {
             frames: this.anims.generateFrameNumbers('dash1.0', {start: 0, end:1 }),
             frameRate: 10
         });
-=======
->>>>>>> ce22591084118d42d2d40ef43dc0dd36274526fc
 
         this.anims.create({
             key: 'dash02',
@@ -85,7 +79,6 @@ class Player extends Phaser.Physics.Arcade.Sprite {
         });
 
         this.anims.create({
-<<<<<<< HEAD
             key: 'saut20',
             frames: [{ key: 'saut2', frame:0}],
             frameRate: 1,
@@ -132,31 +125,6 @@ class Player extends Phaser.Physics.Arcade.Sprite {
             }
         });*/
 
-=======
-            key: 'dash01',
-            frames: this.anims.generateFrameNumbers('dash1.0', {start: 0, end:1 }),
-            frameRate: 10
-        });
-
-        this.anims.create({
-            key: 'dash02',
-            frames: this.anims.generateFrameNumbers('dash2.0', {start: 1, end:0 }),
-            frameRate: 10
-        });
-
-        this.on('animationcomplete',function () {
-            if(this.anims.currentAnim.key === 'dash01'){
-                this.isDash= false;
-            }
-        });
-
-        this.on('animationcomplete',function () {
-            if(this.anims.currentAnim.key === 'dash02'){
-                this.isDash= false;
-            }
-        });
-
->>>>>>> ce22591084118d42d2d40ef43dc0dd36274526fc
 
        this.anims.play('stance');
         this._directionX = 0;
@@ -185,11 +153,7 @@ class Player extends Phaser.Physics.Arcade.Sprite {
 
     move() {
 
-<<<<<<< HEAD
         this.body.velocity.y = Math.min(1000, Math.max(-1000, this.body.velocity.y));
-=======
-        this.body.velocity.y = Math.min(800, Math.max(-800, this.body.velocity.y));
->>>>>>> ce22591084118d42d2d40ef43dc0dd36274526fc
 
     if(this.isDash){
         if(this.sens === 1){
@@ -223,7 +187,6 @@ class Player extends Phaser.Physics.Arcade.Sprite {
                 this.setVelocityX(0);
                 this.anims.play(this.sens === -1 ? 'back' : 'stance', true);
                 //this.anims.play('turn');
-<<<<<<< HEAD
 
         }
 
@@ -257,17 +220,11 @@ class Player extends Phaser.Physics.Arcade.Sprite {
 
 //console.log(this.body.velocity.y);
 
-=======
-
-        }
-
->>>>>>> ce22591084118d42d2d40ef43dc0dd36274526fc
         if (this.body.blocked.down)
         {
             this.simpleJump = false;
             this.doubleJump = false;
             this.waitForDoubleJump = false;
-<<<<<<< HEAD
 
 
             if (this._directionY < 0)
@@ -275,25 +232,8 @@ class Player extends Phaser.Physics.Arcade.Sprite {
                    // console.log('saut');
                     this.setVelocityY(-600);
                     this.simpleJump = true;
-=======
 
->>>>>>> ce22591084118d42d2d40ef43dc0dd36274526fc
 
-            if (this._directionY < 0)
-            {
-                   // console.log('saut');
-                    this.setVelocityY(-600);
-                    this.simpleJump = true;
-            }
-        }
-        else
-        {
-            if (this.simpleJump && this._directionY>=0)
-            {
-                this.waitForDoubleJump = true;
-            }
-
-<<<<<<< HEAD
             }
         }
         else
@@ -319,44 +259,18 @@ class Player extends Phaser.Physics.Arcade.Sprite {
 
 
         }
-=======
-            if (this._directionY < 0 && this.waitForDoubleJump) {
-                //console.log("je veux sauter");
-                if (this.simpleJump && !this.doubleJump) {
-                    //console.log('double saut');
-                    this.setVelocityY(-600);
-                    this.doubleJump = true;
-                }
-            }
-        }
-        }else{
-            this.setVelocityX(0);
-            this.anims.play('stance', true);
 
 
-        }
-
-
->>>>>>> ce22591084118d42d2d40ef43dc0dd36274526fc
 
         //console.log(this.jumpCount);
         //console.log(this.doubleJump);
 
-
-<<<<<<< HEAD
-        //console.log(this.jumpCount);
-        //console.log(this.doubleJump);
-=======
->>>>>>> ce22591084118d42d2d40ef43dc0dd36274526fc
-
-    }
 
 
     }
 
 
 
-<<<<<<< HEAD
 
 
     dash() {
@@ -367,16 +281,6 @@ class Player extends Phaser.Physics.Arcade.Sprite {
         //permet de dasher en étant immobile
         if (this.rechargeSonCoup === false) {
             Tableau.current.cameras.main.shake(70,0.010);
-=======
-    dash() {
-   this.isDash = true;
-
-
-
-        //permet de dasher en étant immobile
-        if (this.rechargeSonCoup === false) {
-            Tableau.current.cameras.main.shake(70,0.020);
->>>>>>> ce22591084118d42d2d40ef43dc0dd36274526fc
             this._directionX = this.sens;
             this.speedFactor = 1;
             this.speedFactorMax = 1;

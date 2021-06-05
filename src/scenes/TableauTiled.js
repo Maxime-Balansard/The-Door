@@ -131,11 +131,7 @@ class TableauTiled extends Tableau {
         ici.alight = ici.map.getObjectLayer('lightChek')['objects'];
         ici.alight.forEach(alightObjects => {
             let alight = new Light(this, alightObjects.x, alightObjects.y).setDepth(9999);
-<<<<<<< HEAD
             alight.addLight(this, 178, 12, 15, 300, 0.4, 0.05, false);
-=======
-            alight.addLight(this, 178, 12, 15, 300, 0.5, 0.05, false);
->>>>>>> ce22591084118d42d2d40ef43dc0dd36274526fc
             this.lightContainer.add(alight);
         });
         //----------------bonus 1------------------------
@@ -238,70 +234,8 @@ class TableauTiled extends Tableau {
             point.checkPointObject = checkPointObject;
         });
 
-<<<<<<< HEAD
 
 
-=======
-        //--------effet sur la lave------------------------
-
-        this.laveFxContainer = this.add.container();
-        this.lave.forEachTile(function (tile) { //on boucle sur TOUTES les tiles de lave pour générer des particules
-            if (tile.index !== -1) { //uniquement pour les tiles remplies
-                //on va créer des particules
-                let props = {
-                    frame: [
-                        //'star', //pour afficher aussi des étoiles
-                        'death-white'
-                    ],
-                    frequency: 200,
-                    lifespan: 2000,
-                    quantity: 2,
-                    x: {min: -32, max: 32},
-                    y: {min: -12, max: 52},
-                    tint: [0xC11A05, 0x883333, 0xBB5500, 0xFF7F27],
-                    rotate: {min: -10, max: 10},
-                    speedX: {min: -10, max: 10},
-                    speedY: {min: -20, max: -30},
-                    scale: {start: 0, end: 1},
-                    alpha: {start: 1, end: 0},
-                    blendMode: Phaser.BlendModes.ADD,
-                };
-                let props2 = {...props}; //copie props sans props 2
-                props2.blendMode = Phaser.BlendModes.MULTIPLY; // un autre blend mode plus sombre
-
-                //ok tout est prêt...ajoute notre objet graphique
-                let laveParticles = ici.add.particles('particles');
-
-                //ajoute le premier émetteur de particules
-                laveParticles.createEmitter(props);
-                //on ne va pas ajouter le second effet émetteur mobile car il consomme trop de ressources
-                if (!ici.isMobile) {
-                    laveParticles.createEmitter(props2); // ajoute le second
-                }
-                // positionne le tout au niveau de la tile
-                laveParticles.x = tile.pixelX + 32;
-                laveParticles.y = tile.pixelY + 32;
-                ici.laveFxContainer.add(laveParticles);
-
-                //optimisation (les particules sont invisibles et désactivées par défaut)
-                //elles seront activées via update() et optimizeDisplay()
-                laveParticles.pause();
-                laveParticles.visible = false;
-                //on définit un rectangle pour notre tile de particules qui nous servira plus tard
-                laveParticles.rectangle = new Phaser.Geom.Rectangle(tile.pixelX, tile.pixelY, 64, 64);
-
-            }
-
-        })
-
-        //--------allez on se fait un peu la même en plus simple mais avec les étoiles----------
-
-
-
-
-        //----------débug---------------------
-
->>>>>>> ce22591084118d42d2d40ef43dc0dd36274526fc
         //pour débugger les collisions sur chaque layer
         let debug = this.add.graphics().setAlpha(this.game.config.physics.arcade.debug ? 0.75 : 0);
         if (this.game.config.physics.arcade.debug === false) {
@@ -373,11 +307,7 @@ class TableauTiled extends Tableau {
 
         this.maChute1.anims.play('eau', true);
 
-<<<<<<< HEAD
        this.anims.create({
-=======
-        this.anims.create({
->>>>>>> ce22591084118d42d2d40ef43dc0dd36274526fc
             key: 'zoom',
             frames: this.anims.generateFrameNumbers('portail1', {start: 0, end: 7}),
             frameRate:  9,
@@ -568,19 +498,12 @@ class TableauTiled extends Tableau {
         //monstersContainer.setDepth(z--);
 
         this.pierre.setDepth(z--);
-<<<<<<< HEAD
-=======
-        this.monstersContainer.setDepth(z--);
->>>>>>> ce22591084118d42d2d40ef43dc0dd36274526fc
         this.caillouContainer.setDepth(z--);
         this.cailloulContainer.setDepth(z--);
         //this.pnj1.setDepth(z--);
         this.devant2.setDepth(z--);
         this.devant.setDepth(z--);
-<<<<<<< HEAD
         this.monstersContainer.setDepth(z--);
-=======
->>>>>>> ce22591084118d42d2d40ef43dc0dd36274526fc
         particles2.setDepth(z--);
         particles3.setDepth(z--);
         particles4.setDepth(z--);
@@ -590,10 +513,6 @@ class TableauTiled extends Tableau {
         this.pnj.setDepth(z--);
         this.pnj1.setDepth(z--);
         this.pnj2.setDepth(z--);
-<<<<<<< HEAD
-=======
-        this.laveFxContainer.setDepth(z--);
->>>>>>> ce22591084118d42d2d40ef43dc0dd36274526fc
         this.lave.setDepth(z--);
         this.derriere.setDepth(z--);
         particles10.setDepth(z--);
@@ -625,11 +544,7 @@ class TableauTiled extends Tableau {
             this.isTexte++;
             this.tweens.add({
                 targets: this.pnj,
-<<<<<<< HEAD
                 duration: 2000,
-=======
-                duration: 3000,
->>>>>>> ce22591084118d42d2d40ef43dc0dd36274526fc
                 yoyo: false,
                 delay: 200,
                 alpha: {
@@ -642,10 +557,7 @@ class TableauTiled extends Tableau {
             this.isTexte++;
             this.tweens.add({
                 targets: this.pnj,
-<<<<<<< HEAD
                 duration: 2000,
-=======
-                duration: 3000,
                 yoyo: false,
                 delay: 200,
                 alpha: {
@@ -664,58 +576,13 @@ class TableauTiled extends Tableau {
             this.isTexte1++;
             this.tweens.add({
                 targets: this.pnj1,
-                duration: 3000,
-                yoyo: false,
-                delay: 200,
-                alpha: {
-                    startDelay: 0,
-                    from: 0,
-                    to: 1
-                }
-            })
-        } else if (this.player.x > 5000 && this.isTexte1 == 1) {
-            this.isTexte1++;
-            this.tweens.add({
-                targets: this.pnj1,
-                duration: 3000,
->>>>>>> ce22591084118d42d2d40ef43dc0dd36274526fc
-                yoyo: false,
-                delay: 200,
-                alpha: {
-                    startDelay: 0,
-                    from: 1,
-                    to: 0
-                }
-            })
-        }
-
-    }
-
-<<<<<<< HEAD
-    apparitionTexte1() {
-
-        if (this.player.x > 3600 && this.isTexte1 == 0) {
-            this.isTexte1++;
-            this.tweens.add({
-                targets: this.pnj1,
                 duration: 2000,
-=======
-
-    apparitionTexte2() {
-
-        if (this.player.x > 6100 && this.isTexte2 == 0) {
-            this.isTexte2++;
-            this.tweens.add({
-                targets: this.pnj2,
-                duration: 3000,
->>>>>>> ce22591084118d42d2d40ef43dc0dd36274526fc
                 yoyo: false,
                 delay: 200,
                 alpha: {
                     startDelay: 0,
                     from: 0,
                     to: 1
-<<<<<<< HEAD
                 }
             })
         } else if (this.player.x > 5000 && this.isTexte1 == 1) {
@@ -729,56 +596,11 @@ class TableauTiled extends Tableau {
                     startDelay: 0,
                     from: 1,
                     to: 0
-=======
-                }
-            })
-        } else if (this.player.x > 7000 && this.isTexte2 == 1) {
-            this.isTexte2++;
-            this.tweens.add({
-                targets: this.pnj2,
-                duration: 3000,
-                yoyo: false,
-                delay: 200,
-                alpha: {
-                    startDelay: 0,
-                    from: 1,
-                    to: 0
                 }
             })
         }
     }
 
-
-    /**
-     * Permet d'activer, désactiver des éléments en fonction de leur visibilité dans l'écran ou non
-     */
-    optimizeDisplay() {
-
-        //return;
-        let world = this.cameras.main.worldView; // le rectagle de la caméra, (les coordonnées de la zone visible)
-
-        // on va activer / désactiver les particules de lave
-        for (let particule of this.laveFxContainer.getAll()) { // parcours toutes les particules de lave
-            if (Phaser.Geom.Rectangle.Overlaps(world, particule.rectangle)) {
-                //si le rectangle de la particule est dans le rectangle de la caméra
-                if (!particule.visible) {
-                    //on active les particules
-                    particule.resume();
-                    particule.visible = true;
-                }
-            } else {
-                //si le rectangle de la particule n'est PAS dans le rectangle de la caméra
-                if (particule.visible) {
-                    //on désactive les particules
-                    particule.pause();
-                    particule.visible = false;
->>>>>>> ce22591084118d42d2d40ef43dc0dd36274526fc
-                }
-            })
-        }
-    }
-
-<<<<<<< HEAD
 
     apparitionTexte2() {
 
@@ -810,10 +632,7 @@ class TableauTiled extends Tableau {
             })
         }
     }
-=======
->>>>>>> ce22591084118d42d2d40ef43dc0dd36274526fc
 
-    }
 
 
 
@@ -870,10 +689,6 @@ class TableauTiled extends Tableau {
             || this.previousPosition !== actualPosition
         ) {
             this.previousPosition = actualPosition;
-<<<<<<< HEAD
-=======
-            this.optimizeDisplay();
->>>>>>> ce22591084118d42d2d40ef43dc0dd36274526fc
         }
 
     }

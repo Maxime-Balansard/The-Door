@@ -20,13 +20,6 @@ class Tableau extends Phaser.Scene {
         this.load.image('Blood', 'assets/Blood.png');
         //this.load.image('ciel', 'assets/ciel.png');
         this.load.image('coup', 'assets/coup.png');
-<<<<<<< HEAD
-=======
-        this.load.audio('piece', 'assets/sounds/piece.mp3');
-        this.load.audio('mort', 'assets/sounds/mort.mp3');
-        this.load.audio('jojo', 'assets/sounds/jojo.mp3');
-        this.load.audio('paf', 'assets/sounds/dash.mp3');
->>>>>>> ce22591084118d42d2d40ef43dc0dd36274526fc
 
 
         this.load.spritesheet('persoSprite',
@@ -37,7 +30,6 @@ class Tableau extends Phaser.Scene {
         this.load.spritesheet('iddlAP',
             'assets/iddlAP.png',
             {frameWidth: 128, frameHeight: 128}
-<<<<<<< HEAD
         );
 
         this.load.spritesheet('dash1.0',
@@ -66,40 +58,12 @@ class Tableau extends Phaser.Scene {
 
         this.load.spritesheet('chutePerso2',
             'assets/chutePerso2.png',
-=======
-        );
-
-        this.load.spritesheet('dash1.0',
-            'assets/dash1.png',
-            {frameWidth: 128, frameHeight: 128}
-        );
-        this.load.spritesheet('dash2.0',
-            'assets/dash2.png',
->>>>>>> ce22591084118d42d2d40ef43dc0dd36274526fc
             {frameWidth: 128, frameHeight: 128}
         );
 
     }
 
     create() {
-<<<<<<< HEAD
-=======
-        //musique
-        this.mort = this.sound.add('mort');
-        this.jojo = this.sound.add('jojo');
-        this.piece = this.sound.add('piece');
-        this.paf = this.sound.add('paf');
-
-        var musicConfig = {
-            mute: false,
-            volume: 0,
-            rate: 1,
-            detune: 0,
-            seek: 0,
-            loop: true,
-            delay: 0
-        }
->>>>>>> ce22591084118d42d2d40ef43dc0dd36274526fc
 
 
         Tableau.current = this;
@@ -121,11 +85,7 @@ class Tableau extends Phaser.Scene {
          */
 
 
-<<<<<<< HEAD
-        this.player = new Player(this, 300, 200);
-=======
-        this.player = new Player(this, 9300, 200);
->>>>>>> ce22591084118d42d2d40ef43dc0dd36274526fc
+        this.player = new Player(this, 0, 674);
         this.blood = this.add.sprite(this.sys.canvas.width / 2, this.sys.canvas.height / 2, "Blood")
         this.blood.displayWidth = 64;
         this.blood.displayHeight = 64;
@@ -247,11 +207,7 @@ stoped(player, arrete){
         //this.player.estEnTrainDAttaquer = true;
         monster.isDead = true; //ok le monstre est mort
         monster.disableBody(true, true);//plus de collisions
-<<<<<<< HEAD
         //this.cameras.main.shake(200, 0.006, true,); //Screen Shaker
-=======
-        this.cameras.main.shake(200, 0.006, true,); //Screen Shaker
->>>>>>> ce22591084118d42d2d40ef43dc0dd36274526fc
     }
 
 
@@ -262,10 +218,7 @@ stoped(player, arrete){
      * @param spike
      */
     hitSpike(player, spike) {
-<<<<<<< HEAD
         let me = this;
-=======
->>>>>>> ce22591084118d42d2d40ef43dc0dd36274526fc
         console.log('tmort');
         this.physics.pause();
         me.player.visible = false;

@@ -19,12 +19,7 @@ let config = {
     scene: [
         new Ui(),
 
-        //new MenuTest("salut"),
-<<<<<<< HEAD
-
-=======
-        //new Menu("yo"),
->>>>>>> ce22591084118d42d2d40ef43dc0dd36274526fc
+        new MenuTest("salut"),
         new TableauTiled("Tiled pour les gros gros levels"),
         //new TableauPixelart("test"),
 
