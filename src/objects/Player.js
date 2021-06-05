@@ -162,13 +162,21 @@ class Player extends Phaser.Physics.Arcade.Sprite {
             this.anims.play('dash02', true);
     }
 
+    if(this.isTombe && !this.isDash){
+        if (this.sens === 1) {
+            this.anims.play('chutePerso1', true);
+        } else if (this.sens === -1) {
+            this.anims.play('chutePerso20', true);
+        }
+    }
+
         if (!this.controlLock){
         switch (true) {
             case this._directionX < 0:
                 this.sens = -1;
                 this.setVelocityX(this.sens * 240 * this.speedFactor);
                 this.vitesse = 1;
-                if(!this.isDash ){
+                if(!this.isDash && !this.isTombe){
                 this.anims.play('left', true);
                 }
                 break;
@@ -176,7 +184,7 @@ class Player extends Phaser.Physics.Arcade.Sprite {
                 this.sens = 1;
                 this.setVelocityX(this.sens * 240 * this.speedFactor);
                 this.vitesse = 1;
-                if(!this.isDash ){
+                if(!this.isDash && !this.isTombe){
                 this.anims.play('right', true);
                 }
                 break;
@@ -185,19 +193,12 @@ class Player extends Phaser.Physics.Arcade.Sprite {
             default:
                 this.vitesse = 0;
                 this.setVelocityX(0);
-                this.anims.play(this.sens === -1 ? 'back' : 'stance', true);
+                if(!this.isDash && !this.isTombe) {
+                    this.anims.play(this.sens === -1 ? 'back' : 'stance', true);
+                }
                 //this.anims.play('turn');
 
         }
-
-            if(this.body.velocity.y > 0){
-                console.log('c beaucoup');
-                this.isTombe= true;
-                if(this.sens === 1){
-                    this.anims.play('chutePerso1', true);
-                }else if (this.sens === -1)
-                    this.anims.play('chutePerso20', true);
-            }
 
 
 
@@ -210,9 +211,9 @@ class Player extends Phaser.Physics.Arcade.Sprite {
            }
 
 
-           if( this.body.velocity.y < 1000 ) {
+          /* if( this.body.velocity.y < 1000 ) {
                 Tableau.current.cameras.main.shake(3000,0.010,true);
-            }
+            }*/
 
 //console.log(this.body.velocity.y);
 
@@ -221,7 +222,7 @@ class Player extends Phaser.Physics.Arcade.Sprite {
             this.simpleJump = false;
             this.doubleJump = false;
             this.waitForDoubleJump = false;
-
+            this.isTombe = false;
 
             if (this._directionY < 0)
             {
@@ -232,8 +233,10 @@ class Player extends Phaser.Physics.Arcade.Sprite {
 
             }
         }
-        else
-        {
+        else {
+
+            console.log('salut');
+            this.isTombe = true;
             if (this.simpleJump && this._directionY>=0)
             {
                 this.waitForDoubleJump = true;
