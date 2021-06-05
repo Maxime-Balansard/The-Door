@@ -119,11 +119,11 @@ class Player extends Phaser.Physics.Arcade.Sprite {
             }
         });
 
-       /* this.on('animationcomplete',function () {
+       this.on('animationcomplete',function () {
             if(this.anims.currentAnim.key === 'chutePerso1'){
                 this.isTombe= false;
             }
-        });*/
+        });
 
 
        this.anims.play('stance');
@@ -191,6 +191,8 @@ class Player extends Phaser.Physics.Arcade.Sprite {
         }
 
             if(this.body.velocity.y > 0){
+                console.log('c beaucoup');
+                this.isTombe= true;
                 if(this.sens === 1){
                     this.anims.play('chutePerso1', true);
                 }else if (this.sens === -1)
@@ -201,11 +203,6 @@ class Player extends Phaser.Physics.Arcade.Sprite {
 
 
            if( this.body.velocity.y < 0 ) {
-
-              /* setTimeout(function() {
-                   Tableau.current.cameras.main.shake(300,0.002,true);
-               }, 2000);*/
-
                if(this.sens === 1){
                    this.anims.play('saut1', true);
                }else if (this.sens === -1)
@@ -213,9 +210,8 @@ class Player extends Phaser.Physics.Arcade.Sprite {
            }
 
 
-            if( this.body.velocity.y < 950 ) {
+           if( this.body.velocity.y < 1000 ) {
                 Tableau.current.cameras.main.shake(3000,0.010,true);
-
             }
 
 //console.log(this.body.velocity.y);

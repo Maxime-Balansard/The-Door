@@ -21,7 +21,7 @@ let config = {
 
         new MenuTest("salut"),
         new TableauTiled("Tiled pour les gros gros levels"),
-        //new TableauPixelart("test"),
+        new Menu("test"),
 
 
     ],

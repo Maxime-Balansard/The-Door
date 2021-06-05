@@ -2,7 +2,7 @@ class MenuTest extends Tableau {
 
 
     constructor() {
-        super("MenuTest");
+        super("Menu");
     }
 
     preload() {
